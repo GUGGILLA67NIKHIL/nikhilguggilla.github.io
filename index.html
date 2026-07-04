@@ -42,8 +42,22 @@
       z-index: 100;
     }
     .nav-logo { font-weight: 900; font-size: 1.5rem; color: var(--text-dark); text-decoration: none; }
-    .nav-links a { margin-left: 30px; text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
-    .nav-links a:hover { color: var(--color-trust); }
+    
+
+    .nav-links a { 
+  margin-left: 30px; 
+  text-decoration: none; 
+  color: var(--text-muted); 
+  font-weight: 600; 
+  font-size: 0.9rem; 
+  transition: all 0.3s ease; /* Smooth transition */
+  padding-bottom: 5px;
+}
+
+.nav-links a:hover { 
+  color: var(--primary); 
+  border-bottom: 2px solid var(--primary); /* Visual highlight */
+}
 
     /* Hero Section */
     .hero {
@@ -292,6 +306,26 @@
     }
   </style>
 </head>
+  <script>
+  window.addEventListener('scroll', () => {
+    let sections = document.querySelectorAll('section');
+    let navLinks = document.querySelectorAll('.nav-links a');
+    sections.forEach(sec => {
+      let top = window.scrollY;
+      let offset = sec.offsetTop - 150;
+      let height = sec.offsetHeight;
+      let id = sec.getAttribute('id');
+      if (top >= offset && top < offset + height) {
+        navLinks.forEach(link => {
+          link.style.color = 'var(--text-muted)';
+          if(link.getAttribute('href') === '#' + id) {
+            link.style.color = 'var(--primary)';
+          }
+        });
+      }
+    });
+  });
+</script>
 <body>
 
   <nav>
