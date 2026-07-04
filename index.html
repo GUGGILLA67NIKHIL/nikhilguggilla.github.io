@@ -250,9 +250,21 @@
     .job-dates { color: var(--text-muted); font-weight: 600; font-size: 0.9rem; text-align: right; }
 
     .projects-section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
-    .project-card { background: var(--white); padding: 40px; border-radius: var(--border-radius); margin-bottom: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
-    .project-card h4 { font-size: 1.3rem; margin: 0 0 10px 0; color: var(--text-dark); }
-    .project-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+.project-card { 
+  background: var(--white); 
+  padding: 40px; 
+  border-radius: var(--border-radius); 
+  margin-bottom: 20px; 
+  box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+  /* Animation settings */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+/* This creates the "moving" lift effect on hover */
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(126, 58, 242, 0.15);
+}
     .project-tags { display: flex; gap: 10px; margin-top: 15px; }
     .tag { background: var(--bg-light); padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: var(--primary); }
 
@@ -477,18 +489,18 @@
   <h2 class="section-title">Academic Projects.</h2>
 
   <div class="project-card">
-    <h4>Motion-Controlled Smart Wheelchair</h4>
-    <p>Engineered an intuitive, motion-controlled wheelchair using an Arduino platform. The system utilizes precision sensors placed for finger or neck movement, allowing the user to navigate in all directions through natural physical gestures, significantly enhancing mobility and independence.</p>
+    <h4>Motion-Controlled Wheelchair</h4>
+    <p>Engineered an intuitive, motion-controlled wheelchair using an Arduino board. The system utilizes precision sensors placed for finger or neck movement, allowing the user to navigate in all directions through natural physical gestures.</p>
     <div class="project-tags">
       <span class="tag">Arduino</span>
-      <span class="tag">Embedded Systems</span>
       <span class="tag">Motion Control</span>
+      <span class="tag">Embedded Systems</span>
     </div>
   </div>
 
   <div class="project-card">
-    <h4>Robotic Hand for Sign Language Communication</h4>
-    <p>Designed a robotic hand prototype as an assistive technology solution for the deaf and mute community. The device translates sign language gestures into readable communication, effectively bridging the interaction gap and facilitating seamless social engagement.</p>
+    <h4>Robo Hand for Communication</h4>
+    <p>Developed a robotic hand prototype to assist deaf and mute individuals. The system translates complex hand gestures into real-time communication, effectively bridging the gap for sign language interaction.</p>
     <div class="project-tags">
       <span class="tag">Robotics</span>
       <span class="tag">Assistive Tech</span>
