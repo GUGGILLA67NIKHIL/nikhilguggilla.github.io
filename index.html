@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,58 +7,266 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Professional Palette */
-      --bg-light: #F9FAFB;
-      --bg-dark: #111827;
-      --primary: #000000;
-      --accent-trust: #0EA5E9;
-      --accent-growth: #10B981;
+      --bg-light: #EBE4FC;
+      --bg-dark: #1F0940;
+      --primary: #7E3AF2;
       --text-dark: #111827;
-      --text-muted: #4B5563;
+      --text-muted: #6B7280;
       --white: #FFFFFF;
-      --border-radius: 8px;
+      --border-radius: 20px;
+      /* Infographic Color Palette Additions */
+      --color-trust: #3B82F6; /* Blue */
+      --color-growth: #10B981; /* Green */
+      --color-authority: #000000; /* Black */
     }
 
     html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
 
     /* Navbar */
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background-color: var(--white); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #eee; }
-    .nav-logo { font-weight: 900; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: var(--bg-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo { font-weight: 900; font-size: 1.5rem; color: var(--text-dark); text-decoration: none; }
     .nav-links a { margin-left: 30px; text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
-    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover { color: var(--color-trust); }
 
-    /* Hero */
-    .hero { position: relative; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 50px; }
-    .hero-content { display: flex; align-items: center; width: 100%; max-width: 1200px; gap: 50px; }
-    .hero-center img { width: 400px; height: 400px; object-fit: cover; border-radius: var(--border-radius); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-    .card { background: var(--white); padding: 30px; border-radius: var(--border-radius); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+      overflow: hidden;
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      font-size: 14vw;
+      font-weight: 900;
+      color: rgba(0, 0, 0, 0.04);
+      white-space: nowrap;
+      z-index: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      line-height: 0.8;
+      text-align: center;
+    }
+
+    .hero-content { 
+      position: relative; 
+      z-index: 10; 
+      display: flex; 
+      align-items: center; 
+      width: 100%; 
+      max-width: 1200px; 
+      gap: 50px; 
+      margin-bottom: 120px;
+    }
+
+    .hero-left, .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      flex: 1;
+    }
+
+    .hero-center {
+      flex: 1.5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      width: 100%;
+    }
+
+    .hero-center img {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 0;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    .hero-pills {
+      display: flex;
+      gap: 10px;
+      margin-top: -20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 4;
+    }
+    .hero-pills div {
+      background: var(--white);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .full-width-marquee { 
+      position: absolute; 
+      bottom: 20px; 
+      left: 0; 
+      width: 100%; 
+      overflow: hidden; 
+      white-space: nowrap; 
+      z-index: 5; 
+      padding: 20px 0; 
+    }
+    .marquee-content { display: inline-flex; gap: 30px; animation: scroll 25s linear infinite; }
+    .marquee-content .pill { background: var(--white); padding: 10px 25px; border-radius: 30px; font-weight: 600; color: var(--text-muted); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    .card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+      position: relative;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 15px;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--color-trust);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .mini-profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px 25px;
+      background: var(--white);
+      border-radius: 50px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+      width: fit-content;
+    }
+    .mini-profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .mini-profile .text-content {
+      display: flex;
+      flex-direction: column;
+    }
+    .mini-profile h4 { margin: 0; font-size: 0.9rem; color: var(--text-dark); }
+    .mini-profile p { margin: 0; font-size: 0.75rem; color: var(--text-muted); }
+
+    .skills-box {
+      background: var(--color-authority);
+      color: var(--white);
+      border-radius: var(--border-radius);
+      padding: 25px;
+    }
+    .skills-box h4 { margin: 0 0 15px 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+    .skill-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .skill-item:last-child { border-bottom: none; }
     
-    .badge { display: inline-block; padding: 6px 15px; background: rgba(14, 165, 233, 0.1); color: var(--accent-trust); border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px; }
+    .floating-resume {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--color-authority);
+      color: var(--white);
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: transform 0.3s;
+    }
+    .floating-resume:hover { transform: translateY(-5px); }
 
-    /* Sections */
     .section-title { font-size: 3rem; font-weight: 900; margin-bottom: 40px; }
-    .section-subtitle { font-size: 1rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+    .section-subtitle { font-size: 1rem; font-weight: 800; color: var(--color-growth); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+    
+    .about-section { background-color: var(--bg-dark); color: var(--white); padding: 100px 50px; display: flex; justify-content: center; }
+    .about-container { max-width: 1200px; display: flex; gap: 50px; }
+    .about-stats { flex: 1; display: flex; flex-direction: column; gap: 15px; }
+    .stat-card { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: var(--border-radius); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 20px; }
+    .stat-card h3 { font-size: 2.5rem; color: var(--color-trust); margin: 0; }
+    .about-text { flex: 1; }
+    .about-text h2 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin: 0 0 20px 0; }
+    .about-text p { color: #A78BFA; font-size: 1.1rem; line-height: 1.8; }
 
-    .about-section { background-color: var(--bg-dark); color: var(--white); padding: 100px 50px; }
-    .about-container { max-width: 1200px; margin: 0 auto; display: flex; gap: 50px; }
-
-    /* Skills - Growth Green */
     .skills-section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .skill-card { background: var(--white); padding: 30px; border-radius: var(--border-radius); border: 1px solid #eee; }
-    .skill-card.primary { background: var(--accent-growth); color: var(--white); }
+    .skill-card { background: var(--white); padding: 30px; border-radius: var(--border-radius); transition: transform 0.3s; }
+    .skill-card:hover { transform: translateY(-5px); }
+    .skill-card.primary { background: var(--color-growth); color: var(--white); }
+    .skill-icon { font-size: 2.5rem; margin-bottom: 15px; }
+    .skill-card h4 { font-size: 1.2rem; margin: 0 0 10px 0; }
+    .skill-card p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+    .skill-card.primary p { color: rgba(255,255,255,0.8); }
 
-    /* Experience - Professional Black */
     .experience-section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
-    .job-card { background: var(--white); padding: 40px; border-radius: var(--border-radius); margin-bottom: 20px; border: 1px solid #eee; }
-    .company { color: var(--primary); font-weight: 800; margin-bottom: 10px; }
+    .job-card { background: var(--white); padding: 40px; border-radius: var(--border-radius); margin-bottom: 20px; display: grid; grid-template-columns: 80px 1fr 150px; gap: 20px; }
+    .job-number { font-size: 2.5rem; font-weight: 900; color: var(--bg-light); }
+    .job-details h4 { font-size: 1.3rem; margin: 0 0 5px 0; }
+    .job-details .company { color: var(--color-trust); font-weight: 600; font-size: 0.9rem; margin-bottom: 15px; }
+    .job-details ul { margin: 0; padding-left: 20px; color: var(--text-muted); font-size: 0.95rem; }
+    .job-details li { margin-bottom: 8px; }
+    .job-dates { color: var(--text-muted); font-weight: 600; font-size: 0.9rem; text-align: right; }
 
-    /* Contact */
-    .contact-section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
-    .btn-submit { background: var(--primary); color: var(--white); border: none; padding: 15px 30px; border-radius: var(--border-radius); cursor: pointer; }
-    
-    .floating-resume { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: var(--white); padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; }
+    .education-section { background-color: var(--bg-dark); color: var(--white); padding: 100px 50px; }
+    .edu-container { max-width: 1200px; margin: 0 auto; }
+    .edu-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: var(--border-radius); margin-bottom: 20px; }
+
+    .contact-section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; display: flex; gap: 50px; }
+    .contact-info { flex: 1; }
+    .contact-info h2 { font-size: 4rem; font-weight: 900; color: var(--color-authority); line-height: 1.1; margin-bottom: 20px; }
+    .contact-pill { display: flex; align-items: center; gap: 15px; background: var(--white); padding: 15px 25px; border-radius: 50px; margin-bottom: 15px; font-weight: 600; color: var(--text-muted); text-decoration: none; width: fit-content; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+    .contact-form { flex: 1; background: var(--white); padding: 40px; border-radius: var(--border-radius); }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 800; margin-bottom: 8px; color: var(--text-dark); }
+    .form-group input, .form-group textarea { width: 100%; padding: 15px; border-radius: 8px; border: none; background: var(--bg-light); font-family: inherit; }
+    .btn-submit { background: var(--color-authority); color: var(--white); border: none; padding: 15px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; font-size: 1rem; }
+
+    @media (max-width: 900px) {
+      .hero-content { flex-direction: column; text-align: center; }
+      .contact-section { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
@@ -70,48 +277,131 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
   <section class="hero">
+    <div class="hero-bg-text">
+      BACKEND<br>ENGINEER
+    </div>
+    
     <div class="hero-content">
-      <div class="hero-center">
-        <img src="1000060226.jpg" alt="Nikhil Guggilla">
+      <div class="hero-center" style="flex: 0 0 400px;">
+        <img src="1000060226.jpg" alt="Nikhil Guggilla" style="border-radius:0;">
       </div>
+      
       <div class="hero-left">
         <div class="card">
           <div class="badge">Available for opportunities →</div>
-          <h1>Nikhil Guggilla</h1>
-          <p>M.S. IT Graduate, Backend Engineer skilled in Java, Spring Boot, and SQL.</p>
+          <h4 style="margin: 0 0 10px 0; font-size: 1.1rem;">M.S. IT Graduate, Backend Engineer</h4>
+          <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            FSU grad skilled in Java, Spring Boot, and SQL — passionate about scalable microservices and turning complex data into seamless systems.
+          </p>
         </div>
+        
+        <div class="card" style="display: flex; align-items: center; gap: 15px; width: fit-content;">
+          <h2 style="margin: 0; font-size: 2.2rem; color: var(--text-dark);">3.95</h2>
+          <div>
+            <div style="font-weight: 800; font-size: 0.9rem;">GPA</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Florida State University</div>
+          </div>
+        </div>
+
+        <div class="mini-profile">
+          <img src="1000060226.jpg" alt="Thumbnail" onerror="this.src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'">
+          <div class="text-content">
+            <h4>Nikhil Guggilla</h4>
+            <p>nikinikhil67@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="full-width-marquee">
+      <div class="marquee-content">
+        <div class="pill">☕ Java (Spring Boot)</div>
+        <div class="pill">🗄️ SQL</div>
+        <div class="pill">🏗️ Microservices</div>
+        <div class="pill">☁️ AWS & Docker</div>
+        <div class="pill">📊 Tableau</div>
+        <div class="pill">☕ Java (Spring Boot)</div>
+        <div class="pill">🗄️ SQL</div>
+        <div class="pill">🏗️ Microservices</div>
+        <div class="pill">☁️ AWS & Docker</div>
+        <div class="pill">📊 Tableau</div>
       </div>
     </div>
   </section>
 
   <section id="about" class="about-section">
     <div class="about-container">
-      <h2>Professional Background</h2>
-      <p>I am a software engineer focused on designing scalable microservices. I have a demonstrated ability to drive project efficiency, improving debugging speed by 40%.</p>
+      <div class="about-stats">
+        <div class="stat-card">
+          <h3>4+</h3>
+          <div>
+            <div style="font-weight: 800;">Years Experience</div>
+            <div style="font-size: 0.8rem; color: #A78BFA;">Java · SQL · Microservices</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <h3>M.S.</h3>
+          <div>
+            <div style="font-weight: 800;">Information Technology</div>
+            <div style="font-size: 0.8rem; color: #A78BFA;">Florida State University</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-text">
+        <div class="section-subtitle">Who I Am</div>
+        <h2>Nikhil<br>Guggilla.</h2>
+        <p>I am a software engineer possessing over four years of professional experience, focused on Java (Spring Boot) and designing scalable microservices. I have a demonstrated ability to drive project efficiency, successfully improving debugging speed by 40% and overall cycle efficiency by 30%.</p>
+        <p>I earned a Master's degree in Information Technology from Florida State University, focusing on enterprise architecture and security. Additionally, I am a certified SQL expert experienced with managing diverse data sources, AWS cloud infrastructure, Docker containers, and CI/CD deployment pipelines.</p>
+      </div>
     </div>
   </section>
 
   <section id="skills" class="skills-section">
-    <div class="section-subtitle">Technical Expertise</div>
-    <h2 class="section-title">Skills.</h2>
+    <div class="section-subtitle">What I Work With</div>
+    <h2 class="section-title">Technical Skills.</h2>
+    
     <div class="skills-grid">
       <div class="skill-card primary">
+        <div class="skill-icon">☕</div>
         <h4>Java & Backend</h4>
-        <p>Java (Spring Boot), Python, Microservices.</p>
+        <p>Java (Spring Boot), Python (Utilities), JavaScript, HTML.</p>
       </div>
       <div class="skill-card">
+        <div class="skill-icon">🗄️</div>
         <h4>Data & Storage</h4>
-        <p>SQL (Certified), PostgreSQL, Hibernate.</p>
+        <p>SQL (Certified), PostgreSQL, SQL Server, Hibernate, ETL/ELT, Change Data Capture.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">☁️</div>
+        <h4>Cloud & DevOps</h4>
+        <p>AWS, Docker, Kubernetes, Jenkins, CI/CD, Amazon S3, Terraform.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🏗️</div>
+        <h4>Architecture</h4>
+        <p>Microservices (Spring Cloud), REST, Apache Kafka, Event-Driven, Redis, Batch/Stream Processing.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <h4>Analytics</h4>
+        <p>Tableau, Signal Four, Complex Datasets, Machine Learning (ML) Pipelines.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">⚙️</div>
+        <h4>Testing & Tools</h4>
+        <p>JUnit, Postman (REST/GraphQL), SonarQube, Git, JIRA.</p>
       </div>
     </div>
   </section>
 
- <section id="experience" class="experience-section">
+  <section id="experience" class="experience-section">
     <div class="section-subtitle">Career Journey</div>
     <h2 class="section-title">Work Experience.</h2>
 
@@ -171,33 +461,28 @@
       </div>
       <div class="job-dates">Sep 2019<br>Oct 2022</div>
     </div>
-
   </section>
-<section id="education" class="education-section">
+
+  <section id="education" class="education-section">
     <div class="edu-container">
-      <div class="section-subtitle" style="color: var(--bg-light);">Academic Background</div>
+      <div class="section-subtitle">Academic Background</div>
       <h2 class="section-title">Education.</h2>
       
       <div class="edu-card">
         <h3 style="font-size: 1.5rem; margin: 0 0 5px 0;">Florida State University</h3>
-        <div style="color: var(--primary); font-weight: 800; margin-bottom: 10px;">Master of Science, Information Technology</div>
+        <div style="color: var(--color-trust); font-weight: 800; margin-bottom: 10px;">Master of Science, Information Technology</div>
         <div style="color: #A78BFA; font-size: 0.9rem;">GPA 3.95/4 · Graduated: Dec 2025</div>
       </div>
 
       <div class="edu-card">
         <h3 style="font-size: 1.5rem; margin: 0 0 5px 0;">Vaagdevi College of Engineering</h3>
-        <div style="color: var(--primary); font-weight: 800; margin-bottom: 10px;">Bachelor of Technology, ECE</div>
+        <div style="color: var(--color-trust); font-weight: 800; margin-bottom: 10px;">Bachelor of Technology, ECE</div>
         <div style="color: #A78BFA; font-size: 0.9rem;">GPA 7.5/10 · Graduated: July 2019</div>
       </div>
     </div>
   </section>
 
-
   <section id="contact" class="contact-section">
-    <h2 class="section-title">Let's work together.</h2>
-    <button class="btn-submit">Send Message</button>
-  </section>
-<section id="contact" class="contact-section">
     <div class="contact-info">
       <h2>Let's work<br>together.</h2>
       <p style="color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem;">Open to full-time roles in Backend Engineering and Systems Analysis — let's build something great together!</p>
@@ -231,7 +516,8 @@
     </div>
   </section>
 
-
-  <a href="resume.pdf" class="floating-resume">📄 View Resume</a>
+  <a href="resume (1).pdf" target="_blank" class="floating-resume">
+    📄 View Resume
+  </a>
 </body>
 </html>
