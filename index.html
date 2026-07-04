@@ -249,6 +249,13 @@
     .job-details li { margin-bottom: 8px; }
     .job-dates { color: var(--text-muted); font-weight: 600; font-size: 0.9rem; text-align: right; }
 
+    .projects-section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
+    .project-card { background: var(--white); padding: 40px; border-radius: var(--border-radius); margin-bottom: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
+    .project-card h4 { font-size: 1.3rem; margin: 0 0 10px 0; color: var(--text-dark); }
+    .project-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+    .project-tags { display: flex; gap: 10px; margin-top: 15px; }
+    .tag { background: var(--bg-light); padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: var(--primary); }
+
     .education-section { background-color: var(--bg-dark); color: var(--white); padding: 100px 50px; }
     .edu-container { max-width: 1200px; margin: 0 auto; }
     .edu-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1); padding: 40px; border-radius: var(--border-radius); margin-bottom: 20px; }
@@ -274,9 +281,11 @@
   <nav>
     <a href="#" class="nav-logo">NG.</a>
     <div class="nav-links">
+      
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </div>
@@ -462,6 +471,31 @@
       <div class="job-dates">Sep 2019<br>Oct 2022</div>
     </div>
   </section>
+
+  <section id="projects" class="projects-section">
+  <div class="section-subtitle">Undergraduate Research</div>
+  <h2 class="section-title">Academic Projects.</h2>
+
+  <div class="project-card">
+    <h4>Microcontroller-Based Smart Wheelchair</h4>
+    <p>Designed and implemented a smart wheelchair system using Arduino. The chair is controlled by specialized sensors (finger/neck movement) that capture the user's intended direction, allowing for hands-free navigation in all directions based on natural physical movement.</p>
+    <div class="project-tags">
+      <span class="tag">Arduino</span>
+      <span class="tag">Embedded Systems</span>
+      <span class="tag">Sensor Technology</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <h4>Robotic Hand for Sign Language Communication</h4>
+    <p>Developed a robotic hand prototype designed to bridge the communication gap for deaf and mute individuals. The system translates sign language gestures into visual or audible output to facilitate easier interaction and accessibility.</p>
+    <div class="project-tags">
+      <span class="tag">Robotics</span>
+      <span class="tag">Assistive Tech</span>
+      <span class="tag">Human-Computer Interaction</span>
+    </div>
+  </div>
+</section>
 
   <section id="education" class="education-section">
     <div class="edu-container">
