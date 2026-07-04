@@ -7,42 +7,249 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-light: #F0F9FF;
-      --bg-dark: #1E293B;
-      --primary: #2563EB;
-      --secondary: #16A34A;
-      --accent: #9333EA;
+      --bg-light: #F0F9FF; /* Trustworthy light blue tint */
+      --bg-dark: #1E293B; /* Professional deep slate */
+      --primary: #2563EB; /* Trustworthy Blue */
+      --secondary: #16A34A; /* Growth Green */
+      --accent: #9333EA; /* Regal Purple */
       --text-dark: #0F172A;
       --text-muted: #475569;
       --white: #FFFFFF;
-      --border-radius: 12px;
+      --border-radius: 20px;
     }
+
     html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); }
 
-    /* Navigation */
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background-color: var(--bg-light); position: sticky; top: 0; z-index: 100; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: var(--bg-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
     .nav-logo { font-weight: 900; font-size: 1.5rem; color: var(--primary); text-decoration: none; }
-    .nav-links a { margin-left: 30px; text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; }
+    .nav-links a { margin-left: 30px; text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--primary); }
 
-    /* Hero */
-    .hero { position: relative; min-height: 80vh; display: flex; justify-content: center; align-items: center; padding: 50px; }
-    .hero-content { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1200px; gap: 30px; }
-    .hero-center img { width: 400px; height: 400px; object-fit: cover; border-radius: var(--border-radius); border: 4px solid var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 50px 90px 50px;
+      overflow: hidden;
+    }
 
-    /* Infinite Marquee */
-    .marquee-container { width: 100%; overflow: hidden; background: var(--white); padding: 20px 0; margin: 40px 0; }
-    .marquee-content { display: flex; gap: 50px; animation: scroll 20s linear infinite; }
-    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .pill { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--secondary); white-space: nowrap; }
+    .hero-bg-text {
+      position: absolute;
+      font-size: 14vw;
+      font-weight: 900;
+      color: rgba(37, 99, 235, 0.05);
+      white-space: nowrap;
+      z-index: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      line-height: 0.8;
+      text-align: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      gap: 30px;
+    }
+
+    .hero-left, .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      flex: 1;
+    }
+
+    .hero-center {
+      flex: 1.5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      width: 100%;
+    }
+
+    .hero-center img {
+      width: 100%;
+      max-width: 450px;
+      height: 550px;
+      object-fit: cover;
+      border-radius: 200px 200px 20px 20px;
+      box-shadow: 0 20px 50px rgba(37, 99, 235, 0.2);
+      z-index: 2;
+    }
+
+    .hero-pills {
+      display: flex;
+      gap: 10px;
+      margin-top: -20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 4;
+    }
+    .hero-pills div {
+      background: var(--white);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .marquee-container {
+      width: 100%;
+      background-color: var(--bg-light);
+      padding: 40px 0; 
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      z-index: 3;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    }
+
+    .marquee-content {
+      display: inline-flex;
+      gap: 15px;
+      animation: scroll 25s linear infinite;
+    }
+
+    .marquee-content .pill {
+      background: var(--white);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--secondary);
+      border: 1px solid var(--secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+      border-left: 5px solid var(--primary);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 15px;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .mini-profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px 25px;
+      background: var(--white);
+      border-radius: 50px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+      width: fit-content;
+    }
+    .mini-profile img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+    .mini-profile .text-content h4 { margin: 0; font-size: 0.9rem; }
+    .mini-profile .text-content p { margin: 0; font-size: 0.75rem; color: var(--text-muted); }
+
+    .skills-box {
+      background: var(--bg-dark);
+      color: var(--white);
+      border-radius: var(--border-radius);
+      padding: 25px;
+    }
+    .skills-box h4 { margin: 0 0 15px 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary); }
+    .skill-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .floating-resume {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--accent);
+      color: var(--white);
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+      z-index: 1000;
+    }
 
     /* Sections */
-    .section-container { max-width: 1000px; margin: 0 auto; padding: 50px; }
-    .section-title { font-size: 2.5rem; font-weight: 900; margin-bottom: 30px; color: var(--text-dark); }
-    .job-card { background: var(--white); padding: 30px; border-radius: var(--border-radius); margin-bottom: 20px; border-left: 5px solid var(--primary); }
-    .company { color: var(--accent); font-weight: 600; margin-bottom: 10px; }
-    ul { color: var(--text-muted); padding-left: 20px; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .section-title { font-size: 3rem; font-weight: 900; margin-bottom: 40px; color: var(--text-dark); }
+    .section-subtitle { font-size: 1rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+    
+    .about-section { background-color: var(--bg-dark); color: var(--white); padding: 100px 50px; display: flex; justify-content: center; }
+    .about-container { max-width: 1200px; display: flex; gap: 50px; }
+    .about-text h2 { color: var(--white); font-size: 4rem; font-weight: 900; line-height: 1.1; margin: 0 0 20px 0; }
+    .about-text p { color: #E2E8F0; font-size: 1.1rem; line-height: 1.8; }
+
+    .skills-section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .skill-card { background: var(--white); padding: 30px; border-radius: var(--border-radius); border-top: 5px solid var(--secondary); }
+    .skill-card.primary { background: var(--primary); color: var(--white); border: none; }
+    .skill-icon { font-size: 2.5rem; margin-bottom: 15px; }
+
+    .experience-section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
+    .job-card { background: var(--white); padding: 40px; border-radius: var(--border-radius); margin-bottom: 20px; border-left: 5px solid var(--primary); }
+    .job-details .company { color: var(--accent); font-weight: 600; }
+
+    .contact-section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; display: flex; gap: 50px; }
+    .contact-info h2 { color: var(--primary); }
+    .contact-pill { display: flex; align-items: center; gap: 15px; background: var(--white); padding: 15px 25px; border-radius: 50px; border: 1px solid var(--primary); color: var(--primary); font-weight: 600; width: fit-content; text-decoration: none; }
+    .btn-submit { background: var(--primary); color: var(--white); border: none; padding: 15px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -53,19 +260,59 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
   <section class="hero">
+    <div class="hero-bg-text">
+      SOFTWARE<br>ENGINEER
+    </div>
+    
     <div class="hero-content">
-      <div>
-        <h1>Software Engineer</h1>
-        <p>5 years of experience in Java, Spring Boot, and scalable microservices.</p>
+      <div class="hero-left">
+        <div class="card">
+          <div class="badge">Available for opportunities →</div>
+          <h4 style="margin: 0 0 10px 0; font-size: 1.1rem;">M.S. IT Graduate, Software Engineer</h4>
+          <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">
+            FSU grad skilled in Java, Spring Boot, and SQL — passionate about scalable microservices and turning complex data into seamless systems.
+          </p>
+        </div>
+        <div class="card" style="display: flex; align-items: center; gap: 15px; width: fit-content;">
+          <h2 style="margin: 0; font-size: 2.2rem; color: var(--primary);">3.95</h2>
+          <div>
+            <div style="font-weight: 800; font-size: 0.9rem;">GPA</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Florida State University</div>
+          </div>
+        </div>
+        <div class="mini-profile">
+          <img src="1000060226.jpg" alt="Thumbnail">
+          <div class="text-content">
+            <h4>Nikhil Guggilla</h4>
+            <p>nikinikhil67@gmail.com</p>
+          </div>
+        </div>
       </div>
+
       <div class="hero-center">
-        <img src="1000060226.jpeg" alt="Nikhil Guggilla">
+        <img src="1000060226.jpg" alt="Nikhil Guggilla">
+        <div class="hero-pills">
+          <div>Information Technology</div>
+          <div>Software Engineering</div>
+          <div>Java / SQL</div>
+          <div>FSU Class of 2025</div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="skills-box">
+          <h4>Key Skills</h4>
+          <div class="skill-item"><span>Java (Spring Boot)</span> <span>★</span></div>
+          <div class="skill-item"><span>SQL (Certified)</span> <span>★</span></div>
+          <div class="skill-item"><span>Microservices</span> <span>★</span></div>
+          <div class="skill-item"><span>AWS & Docker</span> <span>★</span></div>
+          <div class="skill-item"><span>Data Analytics</span> <span>★</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -85,54 +332,49 @@
     </div>
   </div>
 
-  <section id="about" class="section-container">
-    <h2 class="section-title">About Me</h2>
-    <p>I am a software engineer with 5 years of professional experience, focused on Java (Spring Boot) and designing scalable microservices. I earned a Master's degree in Information Technology from FSU.</p>
-  </section>
-
-  <section id="skills" class="section-container">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="skills-grid">
-      <div class="job-card"><h4>Languages</h4><p>Java, Python, SQL, JavaScript, HTML</p></div>
-      <div class="job-card"><h4>DevOps & Cloud</h4><p>Docker, AWS, Jenkins, Kubernetes, Terraform</p></div>
-      <div class="job-card"><h4>Architecture</h4><p>Microservices, REST, Kafka, Redis</p></div>
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-text">
+        <div class="section-subtitle">Who I Am</div>
+        <h2>Nikhil<br>Guggilla.</h2>
+        <p>I am a software engineer possessing five years of professional experience, focused on Java (Spring Boot) and designing scalable microservices. I have a demonstrated ability to drive project efficiency, successfully improving debugging speed by 40% and overall cycle efficiency by 30%.</p>
+        <p>I earned a Master's degree in Information Technology from Florida State University, focusing on enterprise architecture and security. Additionally, I am a certified SQL expert experienced with managing diverse data sources, AWS cloud infrastructure, Docker containers, and CI/CD deployment pipelines.</p>
+      </div>
     </div>
   </section>
 
-  <section id="experience" class="section-container">
-    <h2 class="section-title">Work Experience</h2>
+  <section id="skills" class="skills-section">
+    <div class="section-subtitle">Technical Mastery</div>
+    <h2 class="section-title">Technical Skills.</h2>
+    <div class="skills-grid">
+      <div class="skill-card primary"><div class="skill-icon">☕</div><h4>Java & Backend</h4><p>Java (Spring Boot), Python, JavaScript, HTML.</p></div>
+      <div class="skill-card"><div class="skill-icon">🗄️</div><h4>Data & Storage</h4><p>SQL (Certified), PostgreSQL, SQL Server, Hibernate.</p></div>
+      <div class="skill-card"><div class="skill-icon">☁️</div><h4>Cloud & DevOps</h4><p>AWS, Docker, Kubernetes, Jenkins, Terraform.</p></div>
+    </div>
+  </section>
+
+  <section id="experience" class="experience-section">
+    <div class="section-subtitle">Career Journey</div>
+    <h2 class="section-title">Work Experience.</h2>
     <div class="job-card">
       <h4>Management Systems Analyst II</h4>
-      <div class="company">Florida DHSMV | Apr 2026 - Present</div>
-      <ul><li>Analyzed datasets from DAVID and CRSCAN databases using advanced SQL.</li><li>Developed reporting dashboards using Tableau.</li></ul>
-    </div>
-    <div class="job-card">
-      <h4>Backend Engineer</h4>
-      <div class="company">Backbase Pvt. Ltd | Aug 2023 - Dec 2023</div>
-      <ul><li>Engineered microservices for banking using Java and Spring Boot.</li><li>Automated 100+ test cases using JUnit.</li></ul>
-    </div>
-    <div class="job-card">
-      <h4>Programmer Analyst</h4>
-      <div class="company">Cognizant Pvt. Ltd | Nov 2022 - Jul 2023</div>
-      <ul><li>Built full-stack features for JPMorgan Chase.</li><li>Optimized APIs and SQL queries.</li></ul>
-    </div>
-    <div class="job-card">
-      <h4>Senior Analyst</h4>
-      <div class="company">HCL Pvt. Ltd | Sep 2019 - Oct 2022</div>
-      <ul><li>Developed 25+ microservices for FINEOS.</li><li>Deployed services using Docker and AWS.</li></ul>
+      <div class="company">Florida Department of Highway Safety and Motor Vehicles</div>
+      <ul>
+        <li>Reviewed and evaluated technical initiatives ensuring strict accessibility guidelines.</li>
+        <li>Analyzed complex datasets from DAVID and CRSCAN databases using advanced SQL.</li>
+      </ul>
     </div>
   </section>
 
-  <section id="education" class="section-container">
-    <h2 class="section-title">Education</h2>
-    <div class="job-card"><h4>Master of Science, IT</h4><p>Florida State University | GPA: 3.95</p></div>
-    <div class="job-card"><h4>Bachelor of Technology, ECE</h4><p>Vaagdevi College of Engineering | GPA: 7.5</p></div>
+  <section id="contact" class="contact-section">
+    <div class="contact-info">
+      <h2>Let's work together.</h2>
+      <a href="mailto:nikinikhil67@gmail.com" class="contact-pill">✉ nikinikhil67@gmail.com</a>
+      <a href="https://www.linkedin.com/in/nikhil-guggilla-0a170828a" target="_blank" class="contact-pill">in LinkedIn Profile</a>
+    </div>
   </section>
 
-  <section id="contact" class="section-container">
-    <h2 class="section-title">Contact</h2>
-    <p>nikinikhil67@gmail.com | 850-284-0679</p>
-  </section>
+  <a href="resume (1).pdf" target="_blank" class="floating-resume">📄 View Resume</a>
 
 </body>
 </html>
