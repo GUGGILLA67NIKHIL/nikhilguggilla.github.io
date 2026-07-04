@@ -245,7 +245,62 @@
     .about-text p { color: #A78BFA; font-size: 1.1rem; line-height: 1.8; }
 
     .skills-section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    /* Circular Skills Styling */
+.skills-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 30px; 
+  margin-top: 40px; 
+}
+
+.skill-circle { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+}
+
+.circle-container { 
+  width: 120px; 
+  height: 120px; 
+  position: relative; 
+}
+
+.svg-circle { 
+  width: 120px; 
+  height: 120px; 
+  transform: rotate(-90deg); 
+}
+
+.bg-circle { 
+  fill: none; 
+  stroke: #e5e7eb; 
+  stroke-width: 8; 
+}
+
+.progress-circle { 
+  fill: none; 
+  stroke: var(--primary); 
+  stroke-width: 8; 
+  stroke-linecap: round; 
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.percentage-text { 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  font-weight: 900; 
+  font-size: 1.2rem; 
+  color: var(--text-dark); 
+}
+
+.skill-name { 
+  margin-top: 15px; 
+  font-weight: 600; 
+  font-size: 0.9rem; 
+}
     .skill-card { background: var(--white); padding: 30px; border-radius: var(--border-radius); transition: transform 0.3s; }
     .skill-card:hover { transform: translateY(-5px); }
     .skill-card.primary { background: var(--color-growth); color: var(--white); }
@@ -422,44 +477,36 @@
     </div>
   </section>
 
-  <section id="skills" class="skills-section">
-    <div class="section-subtitle">What I Work With</div>
-    <h2 class="section-title">Technical Skills.</h2>
-    
-    <div class="skills-grid">
-      <div class="skill-card primary">
-        <div class="skill-icon">☕</div>
-        <h4>Java & Backend</h4>
-        <p>Java (Spring Boot), Python (Utilities), JavaScript, HTML.</p>
+<section id="skills" class="skills-section">
+  <div class="section-subtitle">Technical Proficiency</div>
+  <h2 class="section-title">My Skillset.</h2>
+  
+  <div class="skills-grid">
+    <div class="skill-circle">
+      <div class="circle-container">
+        <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 34;"></circle></svg>
+        <span class="percentage-text">90%</span>
       </div>
-      <div class="skill-card">
-        <div class="skill-icon">🗄️</div>
-        <h4>Data & Storage</h4>
-        <p>SQL (Certified), PostgreSQL, SQL Server, Hibernate, ETL/ELT, Change Data Capture.</p>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">☁️</div>
-        <h4>Cloud & DevOps</h4>
-        <p>AWS, Docker, Kubernetes, Jenkins, CI/CD, Amazon S3, Terraform.</p>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">🏗️</div>
-        <h4>Architecture</h4>
-        <p>Microservices (Spring Cloud), REST, Apache Kafka, Event-Driven, Redis, Batch/Stream Processing.</p>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">📊</div>
-        <h4>Analytics</h4>
-        <p>Tableau, Signal Four, Complex Datasets, Machine Learning (ML) Pipelines.</p>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">⚙️</div>
-        <h4>Testing & Tools</h4>
-        <p>JUnit, Postman (REST/GraphQL), SonarQube, Git, JIRA.</p>
-      </div>
+      <div class="skill-name">Java (Spring Boot)</div>
     </div>
-  </section>
 
+    <div class="skill-circle">
+      <div class="circle-container">
+        <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 68;"></circle></svg>
+        <span class="percentage-text">80%</span>
+      </div>
+      <div class="skill-name">SQL / Databases</div>
+    </div>
+
+    <div class="skill-circle">
+      <div class="circle-container">
+        <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 102;"></circle></svg>
+        <span class="percentage-text">70%</span>
+      </div>
+      <div class="skill-name">AWS & DevOps</div>
+    </div>
+  </div>
+</section>
   <section id="experience" class="experience-section">
     <div class="section-subtitle">Career Journey</div>
     <h2 class="section-title">Work Experience.</h2>
