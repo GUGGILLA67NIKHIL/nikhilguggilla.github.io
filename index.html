@@ -6,7 +6,115 @@
   <title>Nikhil Guggilla | Backend Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root {
+    :root {<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikhil Guggilla | Backend Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #030712; --card: #111827; --text: #f8fafc; --accent: #8b5cf6; --muted: #94a3b8; }
+    body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); }
+    
+    /* Hero & Layout */
+    .container { padding: 0 10%; max-width: 1400px; margin: 0 auto; }
+    .hero { padding: 100px 0; display: grid; grid-template-columns: 400px 1fr; gap: 60px; align-items: center; }
+    .hero-img { width: 100%; border-radius: 24px; border: 2px solid var(--accent); }
+    h1 { font-size: 5rem; font-weight: 900; margin: 0; }
+    
+    /* Skills Ticker */
+    .skills-ticker { background: var(--accent); padding: 15px 0; overflow: hidden; white-space: nowrap; transform: rotate(-1deg); margin: 40px 0; }
+    .marquee-content { display: inline-flex; gap: 40px; animation: scroll 30s linear infinite; }
+    .pill { background: rgba(0,0,0,0.2); padding: 5px 15px; border-radius: 20px; font-weight: 800; text-transform: uppercase; }
+
+    /* Experience Styling */
+    .card { background: var(--card); padding: 40px; border-radius: 24px; margin-bottom: 30px; border: 1px solid #1f2937; }
+    .job-title { color: var(--accent); font-size: 1.5rem; font-weight: 700; }
+    .date { color: var(--muted); margin-bottom: 20px; display: block; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 10px; color: var(--muted); }
+    
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <section class="hero">
+      <img src="1000060226.jpg" alt="Nikhil Guggilla" class="hero-img">
+      <div>
+        <h1>Nikhil <br><span style="color:var(--accent)">Guggilla</span></h1>
+        <p style="font-size: 1.5rem;">Backend Engineer. FSU M.S. IT Graduate.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="skills-ticker">
+    <div class="marquee-content">
+      <span class="pill">Java</span><span class="pill">Spring Boot</span><span class="pill">Microservices</span><span class="pill">SQL</span><span class="pill">AWS</span><span class="pill">Docker</span>
+      <span class="pill">Java</span><span class="pill">Spring Boot</span><span class="pill">Microservices</span><span class="pill">SQL</span><span class="pill">AWS</span><span class="pill">Docker</span>
+    </div>
+  </div>
+
+  <section class="container" id="experience">
+    <h2 style="font-size: 3rem; margin-bottom: 50px;">Professional Experience</h2>
+
+    <!-- Management Systems Analyst II -->
+    <div class="card">
+      <div class="job-title">Management Systems Analyst II | Florida Department of Highway Safety and Motor Vehicles</div>
+      <span class="date">Apr 2026 – Present</span>
+      <ul>
+        <li>Review and evaluate WRAP documents and support grant-related technical initiatives to ensure project alignment and compliance, adhering strictly to FAR and ADA accessibility guidelines.</li>
+        <li>Extract, query, and analyze complex datasets from the DAVID and CRSCAN databases using advanced SQL to support critical state data operations.</li>
+        <li>Develop front-end data visualizations and reporting dashboards using Tableau for the Signal Four application and ORION software suite, optimizing overall data management capabilities.</li>
+        <li>Provide dedicated technical assistance and customer support to internal stakeholders, resolving system inquiries and ensuring seamless operational workflows.</li>
+        <li>Support departmental Management and technical Recruiting efforts by assisting in candidate evaluations and workflow optimizations.</li>
+      </ul>
+    </div>
+
+    <!-- Backend Engineer -->
+    <div class="card">
+      <div class="job-title">Backend Engineer | Backbase Pvt. Ltd</div>
+      <span class="date">Aug 2023 – Dec 2023</span>
+      <ul>
+        <li>Engineered and developed microservices for banking products using Java, Spring Boot, and REST APIs.</li>
+        <li>Developed and integrated 15+ RESTful APIs using Spring Boot and Hibernate for WSECU's digital banking services, deploying Data Storage assets on Amazon S3.</li>
+        <li>Automated 100+ test cases using JUnit and Postman, enhancing stability and reducing manual QA by 40%, ensuring rigorous Quality Assurance.</li>
+        <li>Debugged and resolved 30+ backend bugs and memory leaks, reducing response time by 25%.</li>
+        <li>Deployed services using Docker containers and ArgoCD with zero-downtime.</li>
+        <li>Collaborated with mobile and desktop teams to reduce API latency and improve UX.</li>
+        <li>Architected Pivotal cloud solutions and Machine Learning (ML) data pipelines to process high-volume banking telemetry.</li>
+      </ul>
+    </div>
+
+    <!-- Programmer Analyst -->
+    <div class="card">
+      <div class="job-title">Programmer Analyst | Cognizant Pvt. Ltd</div>
+      <span class="date">Nov 2022 – Jul 2023</span>
+      <ul>
+        <li>Built 20+ full-stack features and APIs for JPMorgan Chase using Spring Boot, Java, Angular, and MySQL.</li>
+        <li>Wrote 150+ JUnit test cases and 25 integration tests, achieving 92% test coverage.</li>
+        <li>Fixed 40+ UAT and production issues, reducing client-reported bugs by 35%.</li>
+        <li>Optimized APIs and SQL queries, improving backend throughput by 20%, utilizing PostgreSQL and Redis for advanced data caching.</li>
+        <li>Integrated Messaging architectures utilizing Apache Kafka to streamline communication between internal application modules.</li>
+        <li>Mentored 3 junior devs on Spring Boot and Angular modules.</li>
+      </ul>
+    </div>
+
+    <!-- Senior Analyst -->
+    <div class="card">
+      <div class="job-title">Senior Analyst | HCL Pvt. Ltd</div>
+      <span class="date">Sep 2019 – Oct 2022</span>
+      <ul>
+        <li>Developed 25+ microservices for FINEOS, improving claims and onboarding functions.</li>
+        <li>Executed 200+ test cases with a 97% pass rate.</li>
+      </ul>
+    </div>
+  </section>
+
+</body>
+</html>
       --bg: #0f172a; --card: #1e293b; --text: #f8fafc; --accent: #8b5cf6;
     }
     * { box-sizing: border-box; }
