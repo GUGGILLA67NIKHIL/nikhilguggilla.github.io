@@ -90,6 +90,8 @@
       flex-direction: column;
       align-items: center;
       position: relative;
+      width: 100%;
+      overflow: hidden;
     }
 
     /* Floating Image */
@@ -103,16 +105,28 @@
       z-index: 2;
     }
 
-    /* Under-Image Pills */
-    .hero-pills {
-      display: flex;
-      gap: 15px;
+    /* Scrolling Marquee for Skills */
+    .marquee-container {
+      width: 100%;
+      max-width: 500px;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
       margin-top: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
       z-index: 3;
+      /* Adds a slight fade effect to the edges */
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     }
-    .hero-pills div {
+
+    .marquee-content {
+      display: inline-flex;
+      gap: 15px;
+      /* 20s controls the speed. Lower = faster */
+      animation: scroll 20s linear infinite;
+    }
+
+    .marquee-content .pill {
       background: var(--white);
       padding: 8px 20px;
       border-radius: 30px;
@@ -120,6 +134,14 @@
       font-weight: 600;
       color: var(--text-muted);
       box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .card {
@@ -222,7 +244,7 @@
     }
     .floating-resume:hover { transform: translateY(-5px); }
 
-    /* Other Sections (Simplified for brevity but maintaining style) */
+    /* Other Sections */
     .section-title { font-size: 3rem; font-weight: 900; margin-bottom: 40px; }
     .section-subtitle { font-size: 1rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
     
@@ -291,12 +313,28 @@
         <!-- Main Image -->
         <img src="1000060226.jpg" alt="Nikhil Guggilla">
         
-        <!-- Bottom Subject Pills -->
-        <div class="hero-pills">
-          <div>Information Technology</div>
-          <div>Backend Engineering</div>
-          <div>Java / SQL</div>
-          <div>FSU Class of 2025</div>
+        <!-- Scrolling Skills Marquee -->
+        <div class="marquee-container">
+          <div class="marquee-content">
+            <!-- First Set -->
+            <div class="pill">☕ Java (Spring Boot)</div>
+            <div class="pill">🗄️ SQL</div>
+            <div class="pill">🏗️ Microservices</div>
+            <div class="pill">☁️ AWS & Docker</div>
+            <div class="pill">📊 Tableau</div>
+            <div class="pill">🌐 HTML/JS</div>
+            <div class="pill">🐍 Python</div>
+            <div class="pill">⚙️ Testing (JUnit)</div>
+            <!-- Duplicated Set (Required for seamless looping) -->
+            <div class="pill">☕ Java (Spring Boot)</div>
+            <div class="pill">🗄️ SQL</div>
+            <div class="pill">🏗️ Microservices</div>
+            <div class="pill">☁️ AWS & Docker</div>
+            <div class="pill">📊 Tableau</div>
+            <div class="pill">🌐 HTML/JS</div>
+            <div class="pill">🐍 Python</div>
+            <div class="pill">⚙️ Testing (JUnit)</div>
+          </div>
         </div>
       </div>
 
@@ -356,7 +394,6 @@
   </section>
 
   <!-- Floating Resume Button -->
-  <!-- Make sure your resume file is uploaded to GitHub and named exactly 'resume (1).pdf' to match this link -->
   <a href="resume (1).pdf" target="_blank" class="floating-resume">
     📄 View Resume
   </a>
