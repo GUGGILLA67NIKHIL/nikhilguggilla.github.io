@@ -248,60 +248,17 @@
     /* Circular Skills Styling */
 .skills-grid { 
   display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
   gap: 30px; 
   margin-top: 40px; 
 }
-
-.skill-circle { 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  text-align: center; 
-}
-
-.circle-container { 
-  width: 120px; 
-  height: 120px; 
-  position: relative; 
-}
-
-.svg-circle { 
-  width: 120px; 
-  height: 120px; 
-  transform: rotate(-90deg); 
-}
-
-.bg-circle { 
-  fill: none; 
-  stroke: #e5e7eb; 
-  stroke-width: 8; 
-}
-
-.progress-circle { 
-  fill: none; 
-  stroke: var(--primary); 
-  stroke-width: 8; 
-  stroke-linecap: round; 
-  transition: stroke-dashoffset 1s ease-in-out;
-}
-
-.percentage-text { 
-  position: absolute; 
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  font-weight: 900; 
-  font-size: 1.2rem; 
-  color: var(--text-dark); 
-}
-
-.skill-name { 
-  margin-top: 15px; 
-  font-weight: 600; 
-  font-size: 0.9rem; 
-}
-    .skill-card { background: var(--white); padding: 30px; border-radius: var(--border-radius); transition: transform 0.3s; }
+.skill-circle { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.circle-container { width: 120px; height: 120px; position: relative; }
+.svg-circle { width: 120px; height: 120px; transform: rotate(-90deg); }
+.bg-circle { fill: none; stroke: #e5e7eb; stroke-width: 8; }
+.progress-circle { fill: none; stroke: var(--primary); stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease-in-out; }
+.percentage-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: 900; font-size: 1.1rem; color: var(--text-dark); }
+.skill-name { margin-top: 15px; font-weight: 600; font-size: 0.85rem; line-height: 1.2; }    .skill-card { background: var(--white); padding: 30px; border-radius: var(--border-radius); transition: transform 0.3s; }
     .skill-card:hover { transform: translateY(-5px); }
     .skill-card.primary { background: var(--color-growth); color: var(--white); }
     .skill-icon { font-size: 2.5rem; margin-bottom: 15px; }
@@ -487,7 +444,7 @@
         <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 34;"></circle></svg>
         <span class="percentage-text">90%</span>
       </div>
-      <div class="skill-name">Java (Spring Boot)</div>
+      <div class="skill-name">Java & Spring Boot</div>
     </div>
 
     <div class="skill-circle">
@@ -495,7 +452,15 @@
         <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 68;"></circle></svg>
         <span class="percentage-text">80%</span>
       </div>
-      <div class="skill-name">SQL / Databases</div>
+      <div class="skill-name">SQL & Data Storage</div>
+    </div>
+
+    <div class="skill-circle">
+      <div class="circle-container">
+        <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 85;"></circle></svg>
+        <span class="percentage-text">75%</span>
+      </div>
+      <div class="skill-name">AWS, Docker & CI/CD</div>
     </div>
 
     <div class="skill-circle">
@@ -503,11 +468,26 @@
         <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 102;"></circle></svg>
         <span class="percentage-text">70%</span>
       </div>
-      <div class="skill-name">AWS & DevOps</div>
+      <div class="skill-name">Kafka & Messaging</div>
+    </div>
+
+    <div class="skill-circle">
+      <div class="circle-container">
+        <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 50;"></circle></svg>
+        <span class="percentage-text">85%</span>
+      </div>
+      <div class="skill-name">JUnit & Testing</div>
+    </div>
+
+    <div class="skill-circle">
+      <div class="circle-container">
+        <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 68;"></circle></svg>
+        <span class="percentage-text">80%</span>
+      </div>
+      <div class="skill-name">Microservices Arch.</div>
     </div>
   </div>
-</section>
-  <section id="experience" class="experience-section">
+</section>  <section id="experience" class="experience-section">
     <div class="section-subtitle">Career Journey</div>
     <h2 class="section-title">Work Experience.</h2>
 
