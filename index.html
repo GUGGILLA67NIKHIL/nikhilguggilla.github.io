@@ -252,26 +252,16 @@
   gap: 30px; 
   margin-top: 40px; 
 }
-    .skill-category { 
-  background: var(--white); 
-  padding: 25px; 
-  border-radius: var(--border-radius); 
-  border: 1px solid #E5E7EB;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.skill-category:hover {
-  transform: translateY(-10px) scale(1.02); /* Moves up and grows slightly */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Adds depth on hover */
-  border-color: var(--primary); /* Highlights the border */
-}
-    @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+   
+    
 .skill-category {
   animation: fadeInUp 0.8s ease forwards;
   opacity: 0; /* Starts invisible */
+}
+    .skill-list li:hover {
+  color: var(--primary);
+  padding-left: 5px;
+  transition: all 0.3s ease;
 }
 
 /* Delay each card slightly so they pop in one by one */
