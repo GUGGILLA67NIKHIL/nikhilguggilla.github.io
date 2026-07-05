@@ -235,14 +235,32 @@
     .section-title { font-size: 3rem; font-weight: 900; margin-bottom: 40px; }
     .section-subtitle { font-size: 1rem; font-weight: 800; color: var(--color-growth); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
     
-    .about-section { background-color: var(--bg-dark); color: var(--white); padding: 100px 50px; display: flex; justify-content: center; }
-    .about-container { max-width: 1200px; display: flex; gap: 50px; }
-    .about-stats { flex: 1; display: flex; flex-direction: column; gap: 15px; }
-    .stat-card { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: var(--border-radius); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 20px; }
-    .stat-card h3 { font-size: 2.5rem; color: var(--color-trust); margin: 0; }
-    .about-text { flex: 1; }
-    .about-text h2 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin: 0 0 20px 0; }
-    .about-text p { color: #A78BFA; font-size: 1.1rem; line-height: 1.8; }
+    .about-section { 
+  background-color: var(--bg-dark); 
+  color: var(--white); 
+  padding: 100px 50px; 
+  display: flex; 
+  justify-content: center; 
+}
+    .about-container { max-width: 1200px; display: flex; gap: 80px; align-items: center; }
+.about-stats { flex: 1; display: grid; grid-template-columns: 1fr; gap: 20px; }
+.stat-card { 
+  background: rgba(255, 255, 255, 0.03); 
+  padding: 30px; 
+  border-radius: var(--border-radius); 
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  display: flex; 
+  align-items: center; 
+  gap: 20px; 
+  transition: transform 0.3s ease, border 0.3s ease;
+}
+.stat-card:hover { transform: scale(1.03); border: 1px solid var(--primary); }
+.stat-card h3 { font-size: 3rem; color: var(--primary); margin: 0; font-weight: 900; }
+.stat-card div { font-size: 1rem; }
+    .about-text { flex: 1.5; }
+.about-text h2 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin: 0 0 30px 0; }
+.about-text p { color: #CBD5E1; font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
+.about-text .highlight { color: var(--primary); font-weight: 700; }
 
     .skills-section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
     /* Clean Skill Buckets Styling */
@@ -429,34 +447,33 @@
     </div>
   </section>
 
-  <section id="about" class="about-section">
-    <div class="about-container">
-      <div class="about-stats">
-        <div class="stat-card">
-          <h3>4+</h3>
-          <div>
-            <div style="font-weight: 800;">Years Experience</div>
-            <div style="font-size: 0.8rem; color: #A78BFA;">Java · SQL · Microservices</div>
-          </div>
-        </div>
-        <div class="stat-card">
-          <h3>M.S.</h3>
-          <div>
-            <div style="font-weight: 800;">Information Technology</div>
-            <div style="font-size: 0.8rem; color: #A78BFA;">Florida State University</div>
-          </div>
+<section id="about" class="about-section">
+  <div class="about-container">
+    <div class="about-stats">
+      <div class="stat-card">
+        <h3>4+</h3>
+        <div>
+          <div style="font-weight: 800;">Years Experience</div>
+          <div style="color: var(--text-muted);">Java · Microservices · SQL</div>
         </div>
       </div>
-      
-      <div class="about-text">
-        <div class="section-subtitle">Who I Am</div>
-        <h2>Nikhil<br>Guggilla.</h2>
-        <p>I am a software engineer possessing over four years of professional experience, focused on Java (Spring Boot) and designing scalable microservices. I have a demonstrated ability to drive project efficiency, successfully improving debugging speed by 40% and overall cycle efficiency by 30%.</p>
-        <p>I earned a Master's degree in Information Technology from Florida State University, focusing on enterprise architecture and security. Additionally, I am a certified SQL expert experienced with managing diverse data sources, AWS cloud infrastructure, Docker containers, and CI/CD deployment pipelines.</p>
+      <div class="stat-card">
+        <h3>3.95</h3>
+        <div>
+          <div style="font-weight: 800;">FSU GPA</div>
+          <div style="color: var(--text-muted);">Master of Science in IT</div>
+        </div>
       </div>
     </div>
-  </section>
-
+    
+    <div class="about-text">
+      <div class="section-subtitle">Who I Am</div>
+      <h2>Driven by Code, <br>Designed for Scale.</h2>
+      <p>I am a software engineer possessing over four years of professional experience, focused on <span class="highlight">Java (Spring Boot)</span> and designing scalable microservices. I have a demonstrated ability to drive project efficiency, successfully improving debugging speed by 40% and overall cycle efficiency by 30%.</p>
+      <p>My approach combines academic rigor from <span class="highlight">Florida State University</span> with hands-on experience in enterprise architecture, cloud infrastructure, and security-first development.</p>
+    </div>
+  </div>
+</section>
 <section id="skills" class="skills-section">
   <div class="section-subtitle">Technical Proficiency</div>
   <h2 class="section-title">Core Competencies.</h2>
