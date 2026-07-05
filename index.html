@@ -153,12 +153,14 @@
 .marquee-content { 
   display: inline-flex; 
   gap: 30px; 
-  /* The animation is set to linear for smooth, constant speed */
-  animation: scroll 20s linear infinite; 
+  animation: scroll 20s linear infinite;
+  /* This ensures the content doesn't break into new lines */
+  white-space: nowrap; 
 }
 
 @keyframes scroll { 
   0% { transform: translateX(0); } 
+  /* This moves exactly half the content, which is why your HTML must have two identical sets */
   100% { transform: translateX(-50%); } 
 }
     .card {
