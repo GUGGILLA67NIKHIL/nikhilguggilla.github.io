@@ -252,6 +252,17 @@
   gap: 30px; 
   margin-top: 40px; 
 }
+    .skill-category { 
+  background: var(--white); 
+  padding: 25px; 
+  border-radius: var(--border-radius); 
+  border: 1px solid #E5E7EB;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.skill-category:hover { 
+  transform: translateY(-5px); 
+  border-color: var(--primary); /* Highlights when you hover */
+}
 .skill-circle { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .circle-container { width: 120px; height: 120px; position: relative; }
 .svg-circle { width: 120px; height: 120px; transform: rotate(-90deg); }
@@ -436,58 +447,51 @@
 
 <section id="skills" class="skills-section">
   <div class="section-subtitle">Technical Proficiency</div>
-  <h2 class="section-title">My Skillset.</h2>
+  <h2 class="section-title">Core Competencies.</h2>
   
   <div class="skills-grid">
-    <div class="skill-circle">
-      <div class="circle-container">
-        <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 34;"></circle></svg>
-        <span class="percentage-text">90%</span>
-      </div>
-      <div class="skill-name">Java & Spring Boot</div>
+    <div class="skill-category">
+      <h4>Backend & Arch.</h4>
+      <ul class="skill-list">
+        <li>Java, Spring Boot, Spring Cloud</li>
+        <li>Microservices, REST, Idempotency</li>
+        <li>Event-Driven Arch, Apache Kafka</li>
+        <li>Batch/Stream Processing</li>
+      </ul>
+    </div>
+    
+    <div class="skill-category">
+      <h4>Data & Storage</h4>
+      <ul class="skill-list">
+        <li>SQL (PostgreSQL, SQL Server)</li>
+        <li>Hibernate, ETL/ELT, CDC</li>
+        <li>Redis, Data Caching</li>
+        <li>Tableau, ML Pipelines</li>
+      </ul>
+    </div>
+    
+    <div class="skill-category">
+      <h4>Cloud & DevOps</h4>
+      <ul class="skill-list">
+        <li>AWS (S3, EC2), Docker</li>
+        <li>Kubernetes, Terraform</li>
+        <li>Jenkins, CI/CD, ArgoCD</li>
+        <li>Orchestration</li>
+      </ul>
     </div>
 
-    <div class="skill-circle">
-      <div class="circle-container">
-        <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 68;"></circle></svg>
-        <span class="percentage-text">80%</span>
-      </div>
-      <div class="skill-name">SQL & Data Storage</div>
-    </div>
-
-    <div class="skill-circle">
-      <div class="circle-container">
-        <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 85;"></circle></svg>
-        <span class="percentage-text">75%</span>
-      </div>
-      <div class="skill-name">AWS, Docker & CI/CD</div>
-    </div>
-
-    <div class="skill-circle">
-      <div class="circle-container">
-        <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 102;"></circle></svg>
-        <span class="percentage-text">70%</span>
-      </div>
-      <div class="skill-name">Kafka & Messaging</div>
-    </div>
-
-    <div class="skill-circle">
-      <div class="circle-container">
-        <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 50;"></circle></svg>
-        <span class="percentage-text">85%</span>
-      </div>
-      <div class="skill-name">JUnit & Testing</div>
-    </div>
-
-    <div class="skill-circle">
-      <div class="circle-container">
-        <svg class="svg-circle"><circle class="bg-circle" cx="60" cy="60" r="54"></circle><circle class="progress-circle" cx="60" cy="60" r="54" style="stroke-dasharray: 339; stroke-dashoffset: 68;"></circle></svg>
-        <span class="percentage-text">80%</span>
-      </div>
-      <div class="skill-name">Microservices Arch.</div>
+    <div class="skill-category">
+      <h4>Tools & Methods</h4>
+      <ul class="skill-list">
+        <li>JUnit, Postman, SonarQube</li>
+        <li>Git, JIRA, STS/Eclipse</li>
+        <li>OAuth2, JWT, Swagger</li>
+        <li>Agile/Scrum, TDD</li>
+      </ul>
     </div>
   </div>
-</section>  <section id="experience" class="experience-section">
+</section>
+  <section id="experience" class="experience-section">
     <div class="section-subtitle">Career Journey</div>
     <h2 class="section-title">Work Experience.</h2>
 
