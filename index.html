@@ -263,6 +263,21 @@
   transform: translateY(-5px); 
   border-color: var(--primary); /* Highlights when you hover */
 }
+    @keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.skill-category {
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0; /* Starts invisible */
+}
+
+/* Delay each card slightly so they pop in one by one */
+.skill-category:nth-child(1) { animation-delay: 0.1s; }
+.skill-category:nth-child(2) { animation-delay: 0.2s; }
+.skill-category:nth-child(3) { animation-delay: 0.3s; }
+.skill-category:nth-child(4) { animation-delay: 0.4s; }
 .skill-circle { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .circle-container { width: 120px; height: 120px; position: relative; }
 .svg-circle { width: 120px; height: 120px; transform: rotate(-90deg); }
